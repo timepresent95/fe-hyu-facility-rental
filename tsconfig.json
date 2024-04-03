@@ -26,7 +26,7 @@
         "./*"
       ],
       "#/*": [
-        "./shared/shardcn-uis"
+        "./shared/shardcn-ui/*"
       ],
     }
   },
