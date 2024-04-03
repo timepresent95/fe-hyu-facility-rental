@@ -5,9 +5,11 @@ const config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./widget/**/*.{ts,tsx}",
+    "./features/**/*.{ts,tsx}",
+    "./entities/**/*.{ts,tsx}",
+    "./shared/shardcn-ui/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -15,7 +17,7 @@ const config = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        md: "640px",
       },
     },
     extend: {
