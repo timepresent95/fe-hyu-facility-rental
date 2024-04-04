@@ -2,12 +2,12 @@
 
 import { Form, FormField } from "#/ui/form";
 import { Button, ButtonProps } from "#/ui/button";
-import DatePickerFormItem from "@/entities/DatePickerFormItem/ui";
-import TextAreaFormItem from "@/entities/TextAreaFormItem/ui";
-import InputFormItem from "@/entities/InputFormItem/ui";
-import StepperInputFormItem from "@/entities/StepperInputFormItem/ui";
-import PhoneFormItem from "@/entities/PhoneFormItem/ui";
-import EmailFormItem from "@/entities/EmailFormItem/ui";
+import DatePickerFormItem from "@/features/DatePickerFormItem/ui";
+import TextAreaFormItem from "@/features/TextAreaFormItem/ui";
+import InputFormItem from "@/features/InputFormItem/ui";
+import StepperInputFormItem from "@/features/StepperInputFormItem/ui";
+import PhoneFormItem from "@/features/PhoneFormItem/ui";
+import EmailFormItem from "@/features/EmailFormItem/ui";
 import { useFormSubmit, useFormValuesContext } from "./context";
 import { useCallback } from "react";
 import dayjs, { Dayjs } from "@/shared/dayjs";
@@ -56,7 +56,7 @@ function ReservationPicker({ reservationWindow }: Props) {
         <div className="w-full space-y-2 px-3">
           <FormField
             control={form.control}
-            name="name"
+            name="hostName"
             render={({ field }) => (
               <InputFormItem
                 label="신청자명"
@@ -69,7 +69,7 @@ function ReservationPicker({ reservationWindow }: Props) {
           />
           <FormField
             control={form.control}
-            name="participants"
+            name="capacity"
             render={({ field }) => (
               <StepperInputFormItem
                 label="참가 인원"
@@ -104,7 +104,7 @@ function ReservationPicker({ reservationWindow }: Props) {
           />
           <FormField
             control={form.control}
-            name="purpose"
+            name="description"
             render={({ field }) => (
               <TextAreaFormItem
                 label="사용 목적"

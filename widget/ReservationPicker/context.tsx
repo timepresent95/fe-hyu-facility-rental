@@ -32,7 +32,13 @@ function useFormValuesContext() {
 
 function FormProvider({ children }: PropsWithChildren) {
   const form = useForm<FormSchemaValues>({
-    defaultValues: { name: "", participants: 0, email: "" },
+    defaultValues: {
+      hostName: "",
+      capacity: 0,
+      phone: "",
+      email: "",
+      description: "",
+    },
     resolver: zodResolver(FormSchema),
   });
   return (
