@@ -3,8 +3,11 @@ import {
   ReservationPicker,
   ReservationSubmitButton,
 } from "@/widget/ReservationPicker/ui";
+import dayjs from "@/shared/dayjs";
 
 export default function Page() {
+  const currentDate = new Date();
+
   return (
     <main className="container pt-8">
       <FormProvider>
@@ -19,7 +22,7 @@ export default function Page() {
               </h2>
               <div className="space-y-2 mb-3">
                 <h3 className="font-semibold">1. 대관 이용 신청 가능 기한</h3>
-                <p className="text-sm">사용 예정일 전월</p>
+                <p className="text-sm">익월 부터 3개월 후 말일까지</p>
               </div>
               <div className="space-y-2 mb-3">
                 <h3 className="font-semibold">2. 이용 제한</h3>
@@ -46,7 +49,12 @@ export default function Page() {
               </p>
             </div>
           </div>
-          <ReservationPicker />
+          <ReservationPicker
+            reservationWindow={{
+              startDate: dayjs().add(1, "month").set("date", 1),
+              endDate: dayjs().add(3, "month").endOf("month"),
+            }}
+          />
         </div>
         <div className="w-full px-4 mt-8">
           <ReservationSubmitButton label="예약 신청" className="w-full" />

@@ -9,9 +9,35 @@ import StepperInputFormItem from "@/entities/StepperInputFormItem/ui";
 import PhoneFormItem from "@/entities/PhoneFormItem/ui";
 import EmailFormItem from "@/entities/EmailFormItem/ui";
 import { useFormSubmit, useFormValuesContext } from "./context";
+import { useCallback } from "react";
+import dayjs, { Dayjs } from "@/shared/dayjs";
 
-function ReservationPicker() {
+interface Props {
+  reservationWindow?: { startDate: Dayjs; endDate: Dayjs };
+}
+
+function ReservationPicker({ reservationWindow }: Props) {
   const { form } = useFormValuesContext();
+  const isReservable = useCallback(
+    (date: Date) => {
+      if (reservationWindow === undefined) {
+        return true;
+      }
+      if (
+        dayjs(date).isBetween(
+          reservationWindow.startDate,
+          reservationWindow.endDate,
+          "day",
+          "[]"
+        )
+      ) {
+        return false;
+      }
+      return true;
+    },
+    [reservationWindow]
+  );
+
   return (
     <Form {...form}>
       <form>
@@ -23,6 +49,7 @@ function ReservationPicker() {
               className="w-full"
               selected={field.value}
               onSelect={field.onChange}
+              disabled={isReservable}
             />
           )}
         />
