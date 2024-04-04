@@ -22,7 +22,7 @@ export default function Page() {
               </h2>
               <div className="space-y-2 mb-3">
                 <h3 className="font-semibold">1. 대관 이용 신청 가능 기한</h3>
-                <p className="text-sm">익월 부터 3개월 후 말일까지</p>
+                <p className="text-sm">익월 1일 부터 3개월 후 말일까지</p>
               </div>
               <div className="space-y-2 mb-3">
                 <h3 className="font-semibold">2. 이용 제한</h3>
