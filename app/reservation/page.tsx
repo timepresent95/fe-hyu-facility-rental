@@ -5,7 +5,7 @@ import {
 } from "@/widget/ReservationPicker/ui";
 import dayjs from "@/shared/dayjs";
 
-export default function Page() {
+function ReservationPage() {
   const currentDate = new Date();
 
   return (
@@ -63,3 +63,7 @@ export default function Page() {
     </main>
   );
 }
+
+ReservationPage.displayName = "ReservationPage";
+
+export default ReservationPage;
