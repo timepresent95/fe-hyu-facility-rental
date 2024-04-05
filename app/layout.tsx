@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/shared/shardcn-ui/lib/utils";
+import { MSWComponent } from "@/shared/msw/MSWComponent";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -22,7 +23,7 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased",
           inter.variable
         )}>
-        {children}
+        <MSWComponent>{children}</MSWComponent>
       </body>
     </html>
   );
