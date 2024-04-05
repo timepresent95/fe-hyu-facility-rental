@@ -43,7 +43,7 @@ function ReservationPicker({ reservationWindow }: Props) {
       <form>
         <FormField
           control={form.control}
-          name="date"
+          name="eventDate"
           render={({ field }) => (
             <DatePickerFormItem
               className="w-full"

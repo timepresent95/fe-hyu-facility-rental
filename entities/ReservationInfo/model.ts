@@ -1,6 +1,7 @@
 export interface ReservationInfo {
   id: string;
-  date: Date;
+  eventDate: Date;
+  applicationDate: Date;
   hostName: string;
   capacity: number;
   phone: string;

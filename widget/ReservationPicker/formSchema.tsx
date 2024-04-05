@@ -2,7 +2,7 @@ import { ReservationInfo } from "@/entities/ReservationInfo/model";
 import { z } from "zod";
 
 export const FormSchema = z.object({
-  date: z.date({
+  eventDate: z.date({
     required_error: "예약일을 선택해주세요",
   }),
   hostName: z.string().trim().min(1, "신청자명을 입력해주세요"),
