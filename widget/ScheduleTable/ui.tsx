@@ -13,12 +13,12 @@ import {
   TableHeader,
   TableRow,
 } from "#/ui/table";
-import { DataTableProps } from "./model";
+import type { ReservationTableData, DataTableProps } from "./model";
 
-function ScheduleTable<TData, TValue>({
+function ScheduleTable({
   columns,
   data,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<ReservationTableData, unknown>) {
   const table = useReactTable({
     columns,
     data,
@@ -30,7 +30,7 @@ function ScheduleTable<TData, TValue>({
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
-              <TableHead key={header.id}>
+              <TableHead key={header.id} className="text-center">
                 {header.isPlaceholder
                   ? null
                   : flexRender(
@@ -46,13 +46,16 @@ function ScheduleTable<TData, TValue>({
         {table.getRowModel().rows?.length ? (
           table.getRowModel().rows.map((row) => (
             <TableRow
+              className="cursor-pointer"
               key={row.id}
               data-state={row.getIsSelected() && "selected"}>
-              {row.getVisibleCells().map((cell) => (
-                <TableCell key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </TableCell>
-              ))}
+              {row.getVisibleCells().map((cell) => {
+                return (
+                  <TableCell key={cell.id} className="text-center">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                );
+              })}
             </TableRow>
           ))
         ) : (
@@ -66,7 +69,5 @@ function ScheduleTable<TData, TValue>({
     </Table>
   );
 }
-
-ScheduleTable.displayName = "ScheduleTable";
 
 export default ScheduleTable;

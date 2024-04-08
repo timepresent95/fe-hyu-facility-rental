@@ -1,18 +1,28 @@
-import { ReservationInfo } from "@/entities/ReservationInfo/model";
-import { ColumnDef } from "@tanstack/react-table";
+import { ColumnDef, type Row } from "@tanstack/react-table";
 
-export const columns: ColumnDef<ReservationInfo>[] = [
+export interface ReservationTableData {
+  id: string;
+  eventDate: string;
+  applicationDate: Date;
+  hostName: string;
+  bookings: string;
+  phone: string;
+  email: string;
+  description: string;
+}
+
+export const columns: ColumnDef<ReservationTableData>[] = [
   {
     accessorKey: "hostName",
     header: "주최자",
   },
   {
-    accessorKey: "capacity",
-    header: "참석 가능 인원",
+    accessorKey: "bookings",
+    header: "예약자 수",
   },
   {
-    accessorKey: "applicationDate",
-    header: "신청일",
+    accessorKey: "eventDate",
+    header: "행사일",
   },
 ];
 
