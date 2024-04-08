@@ -58,7 +58,7 @@ const reservations: ReservationInfo[] = [
   },
 ];
 
-const apiUrl = "http://localhost:3000/api";
+const apiUrl = process.env.NEXT_PUBLIC_API;
 
 export const handlers = [
   http.get(apiUrl + "/reservation", () => {
@@ -70,7 +70,7 @@ export const handlers = [
       const newReservation = await request.json();
       reservations.push(newReservation);
       return HttpResponse.json(newReservation, { status: 201 });
-    }
+    },
   ),
 
   http.delete(apiUrl + "/reservation/:id", ({ params }) => {
