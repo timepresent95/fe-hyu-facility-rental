@@ -4,7 +4,7 @@ import { ReservationInfo } from "@/entities/ReservationInfo/model";
 import dayjs from "@/shared/dayjs";
 
 async function getReservations() {
-  const apiUrl = process.env.API_URL;
+  const apiUrl = process.env.NEXT_PUBLIC_API;
   const res = await fetch(apiUrl + "/reservation");
   const reservations: ReservationInfo[] = await res.json();
   return reservations;
