@@ -16,5 +16,5 @@ export const MSWComponent = ({ children }: { children: React.ReactNode }) => {
     }
   }, [mswReady]);
 
-  return mswReady ? <>{children}</> : <div>loading</div>;
+  return mswReady ? <>{children}</> : null;
 };
